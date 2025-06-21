@@ -15,3 +15,8 @@ resource "spacelift_stack" "prod-ecs-multi-region" {
   terraform_workflow_tool = "OPEN_TOFU"
   autodeploy = true
 }
+
+resource "spacelift_aws_integration" "aws" {
+  name     = "Infra POC 2025"
+  role_arn = "arn:aws:iam::383395885309:role/TerraformAccess"
+}
