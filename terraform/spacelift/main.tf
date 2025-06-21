@@ -16,7 +16,12 @@ resource "spacelift_stack" "prod-ecs-multi-region" {
   autodeploy = true
 }
 
-resource "spacelift_aws_integration" "aws" {
+resource "spacelift_aws_integration" "this" {
   name     = "Infra POC 2025"
   role_arn = "arn:aws:iam::383395885309:role/TerraformAccess"
+}
+
+resource "spacelift_aws_integration_attachment" "prod-ecs-multi-region" {
+  integration_id = spacelift_aws_integration.this.id
+  stack_id = spacelift_stack.prod-ecs-multi-region.id
 }
