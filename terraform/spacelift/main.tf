@@ -24,4 +24,6 @@ resource "spacelift_aws_integration" "this" {
 resource "spacelift_aws_integration_attachment" "prod-ecs-multi-region" {
   integration_id = spacelift_aws_integration.this.id
   stack_id = spacelift_stack.prod-ecs-multi-region.id
+  read = true
+  write = true
 }
