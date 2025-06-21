@@ -17,7 +17,9 @@ resource "spacelift_stack" "prod-ecs-multi-region-failover" {
   branch     = "main"
   name       = "prod-ecs-multi-region-failover"
   repository = "ecs-multi-region-failover"
+  project_root = "terraform/enviornments/prod"
   terraform_workflow_tool = "OPEN_TOFU"
+  additional_project_globs = ["terraform/spacelift"]
 }
 
 resource "spacelift_stack" "test" {
