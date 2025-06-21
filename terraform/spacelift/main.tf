@@ -8,6 +8,7 @@ terraform {
 }
 
 resource "spacelift_stack" "spacelift" {
+  administrative = true
   branch     = "main"
   name       = "spacelift-self-management"
   repository = "ecs-multi-region-failover"
