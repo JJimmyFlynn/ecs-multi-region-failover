@@ -13,13 +13,14 @@ terraform {
   }
 }
 
-provider "spacelift" {
-  api_key_endpoint = "https://jjimmyflynn.app.spacelift.io"
-  api_key_id       = "01JY875A35R6ZA20K6P4PE7FZK"
-  api_key_secret   = var.spacelift_api_key
+resource "spacelift_stack" "prod-ecs-multi-region-failover" {
+  branch     = "main"
+  name       = "prod-ecs-multi-region-failover"
+  repository = "ecs-multi-region-failover"
+  terraform_workflow_tool = "OPEN_TOFU"
 }
 
-resource "spacelift_stack" "prod-ecs-multi-region-failover" {
+resource "spacelift_stack" "test" {
   branch     = "main"
   name       = "prod-ecs-multi-region-failover"
   repository = "ecs-multi-region-failover"
