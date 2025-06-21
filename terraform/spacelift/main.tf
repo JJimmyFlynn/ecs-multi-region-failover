@@ -13,17 +13,18 @@ terraform {
   }
 }
 
-resource "spacelift_stack" "prod-ecs-multi-region-failover" {
+resource "spacelift_stack" "spacelift" {
   branch     = "main"
-  name       = "prod-ecs-multi-region-failover"
+  name       = "spacelift-self-management"
   repository = "ecs-multi-region-failover"
-  project_root = "terraform"
+  project_root = "terraform/spacelift"
   terraform_workflow_tool = "OPEN_TOFU"
 }
 
 resource "spacelift_stack" "test" {
   branch     = "main"
-  name       = "prod-ecs-multi-region-failover"
+  name       = "test"
   repository = "ecs-multi-region-failover"
+  project_root = "terraform/something"
   terraform_workflow_tool = "OPEN_TOFU"
 }
