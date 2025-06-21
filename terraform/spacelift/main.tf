@@ -1,10 +1,4 @@
 terraform {
-  backend "s3" {
-    bucket         = "fly-infra-poc-2025"
-    key            = "tfstate/spacelift"
-    region         = "us-east-1"
-  }
-
   required_providers {
     spacelift = {
       source = "spacelift-io/spacelift"
