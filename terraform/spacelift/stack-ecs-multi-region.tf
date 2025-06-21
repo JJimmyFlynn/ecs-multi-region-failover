@@ -18,3 +18,10 @@
     read = true
     write = true
   }
+
+  resource "spacelift_environment_variable" "test" {
+    stack_id    = spacelift_stack.prod-ecs-multi-region.id
+    name        = "TEST"
+    value       = "some_value"
+    write_only  = false
+  }
