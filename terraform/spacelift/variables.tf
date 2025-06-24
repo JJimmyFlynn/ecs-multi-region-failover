@@ -1,5 +1,5 @@
 variable "spacelift_api_key" {
-  type = string
+  type        = string
   description = "The API key used to communicate with the Spacelift.io account"
-  default = ""
+  default     = ""
 }
