@@ -1,0 +1,27 @@
+version: "3"
+
+tasks:
+  all-up:
+    cmds:
+      - task: network-up
+      - task: ecs-up
+  all-down:
+    cmds:
+      - task: ecs-down
+      - task: network-down
+  network-up:
+    cmds:
+      - tofu -chdir=./terraform/environments/prod/networking/us-east-1 init
+      - tofu -chdir=./terraform/environments/prod/networking/us-east-1 apply
+  network-down:
+    cmds:
+      - tofu -chdir=./terraform/environments/prod/networking/us-east-1 init
+      - tofu -chdir=./terraform/environments/prod/networking/us-east-1 destroy
+  ecs-up:
+    cmds:
+      - tofu -chdir=./terraform/environments/prod/ecs/us-east-1 init
+      - tofu -chdir=./terraform/environments/prod/ecs/us-east-1 apply
+  ecs-down:
+    cmds:
+      - tofu -chdir=./terraform/environments/prod/ecs/us-east-1 init
+      - tofu -chdir=./terraform/environments/prod/ecs/us-east-1 destroy
