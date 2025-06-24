@@ -1,8 +1,8 @@
-  resource "spacelift_stack" "prod-ecs-multi-region" {
+  resource "spacelift_stack" "prod_use1_ecs_multi_region" {
     branch     = "main"
-    name       = "prod-ecs-multi-region"
+    name       = "prod-ecs-use1-multi-region"
     repository = "ecs-multi-region-failover"
-    project_root = "terraform/environments/prod"
+    project_root = "terraform/environments/prod/ecs/us-east-1"
     terraform_workflow_tool = "OPEN_TOFU"
     autodeploy = true
   }
@@ -14,7 +14,7 @@
 
     resource "spacelift_aws_integration_attachment" "prod-ecs-multi-region" {
     integration_id = spacelift_aws_integration.this.id
-    stack_id = spacelift_stack.prod-ecs-multi-region.id
+    stack_id = spacelift_stack.prod_use1_ecs_multi_region.id
     read = true
     write = true
   }
